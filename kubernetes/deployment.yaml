@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: spring-music-jmx
+spec:
+  replicas: 1
+  selector:
+    app: spring-music-jmx
+  template:
+    metadata:
+      name: somename
+      labels:
+        app: spring-music-jmx
+    spec:
+      containers:
+      - name: spring-music-app
+        image: mjsjinsu/spring-music:0.3
+        ports:
+        - containerPort: 8080
+          name: tomcat
+        - containerPort: 8090
+          name: jmx
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-music-service-jmx
+  annotations:
+    prometheus.io/jmx: 'true'
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 30004
+      port: 8080
+      protocol: TCP
+      name: spring-music-service
+    app: spring-music-jmx
