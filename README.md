@@ -68,4 +68,9 @@ $ docker push [REPOSITORY_ADDRESS]/spring-boot-monitoring-demo:[VERSION]
 
 ```
 $ kubectl apply -f Kubernetes/deployment.yaml
+
+$ kubectl get po
+NAME                                           READY     STATUS    RESTARTS   AGE
+spring-boot-monitoring-demo-5795695496-ljfkw   1/1       Running   0          1m
+spring-boot-monitoring-demo-5795695496-mqzrr   1/1       Running   0          1m
 ```
