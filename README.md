@@ -67,5 +67,5 @@ $ docker push [REPOSITORY_ADDRESS]/spring-boot-monitoring-demo:[VERSION]
 ## Deploy demo application to Kubernetes cluster
 
 ```
-$ kubectl apply -f deployment.yaml
+$ kubectl apply -f Kubernetes/deployment.yaml
 ```
